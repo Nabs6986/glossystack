@@ -3,6 +3,7 @@ import { getAllComparisonSlugs } from './vs/_data/comparisons';
 import { getAllAudienceSlugs } from './for/_data/audiences';
 import { getAllUseCaseSlugs } from './use-case/_data/usecases';
 import { getAllSoftwareSlugs } from './software/_data/software';
+import { posts } from './blog/_data/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://glossystack.com';
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const corePages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
   ];
 
   const comparisonPages: MetadataRoute.Sitemap = getAllComparisonSlugs().map((slug) => ({
@@ -40,5 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...corePages, ...comparisonPages, ...audiencePages, ...useCasePages, ...softwarePages];
+  const blogPages: MetadataRoute.Sitemap = Object.keys(posts).map((slug) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...corePages, ...comparisonPages, ...audiencePages, ...useCasePages, ...softwarePages, ...blogPages];
 }
