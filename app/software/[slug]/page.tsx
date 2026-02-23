@@ -109,7 +109,8 @@ export default async function SoftwarePage({ params }: Props) {
       },
       "author": {
         "@type": "Organization",
-        "name": "CounselStack",
+        "name": "GlossyStack",
+        "url": "https://glossystack.com",
       },
     },
   };

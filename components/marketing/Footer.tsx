@@ -53,6 +53,8 @@ export function Footer() {
               <li><Link href="/software/glossgenius" className="text-slate-600 hover:text-brand-600">GlossGenius Review</Link></li>
               <li><Link href="/software/boulevard" className="text-slate-600 hover:text-brand-600">Boulevard Review</Link></li>
               <li><Link href="/software/mangomint" className="text-slate-600 hover:text-brand-600">Mangomint Review</Link></li>
+              <li><Link href="/faq" className="text-slate-600 hover:text-brand-600">FAQ</Link></li>
+              <li><Link href="/how-we-review" className="text-slate-600 hover:text-brand-600">How We Review</Link></li>
             </ul>
           </div>
         </div>
