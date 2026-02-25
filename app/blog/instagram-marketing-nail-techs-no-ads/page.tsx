@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { ArticleSchema } from "@/components/schema/ArticleSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: 'Instagram Marketing for Nail Techs: Building Your Book Without Paid Ads | Glossy Stack',
@@ -8,6 +10,20 @@ export const metadata: Metadata = {
 export default function BlogPost() {
   return (
     <article className="prose prose-lg max-w-4xl mx-auto px-4 py-12">
+      <ArticleSchema
+        title="Instagram Marketing for Nail Techs: Building Your Book Without Paid Ads"
+        description="How to fill your nail tech schedule using Instagram alone—no paid ads needed. Content strategy, hashtags, booking links, and what actually converts followers to clients."
+        author="GlossyStack"
+        datePublished="2026-02-23"
+        url="https://glossystack.com/blog/instagram-marketing-nail-techs-no-ads"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Blog", url: "https://glossystack.com/blog" },
+          { name: "Instagram Marketing for Nail Techs", url: "https://glossystack.com/blog/instagram-marketing-nail-techs-no-ads" },
+        ]}
+      />
       <h1>Instagram Marketing for Nail Techs: Building Your Book Without Paid Ads</h1>
       <p className="text-gray-600 mb-8">February 23, 2026</p>
 

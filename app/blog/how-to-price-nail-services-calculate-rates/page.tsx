@@ -1,3 +1,6 @@
+import { ArticleSchema } from "@/components/schema/ArticleSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
+
 export const metadata = {
   title: "How to Price Your Nail Services: Calculate What You Should Actually Charge | Glossy Stack",
   description: "Most nail techs underprice their work. Here's how to calculate your real costs, set competitive rates, and raise prices without losing clients."
@@ -6,6 +9,20 @@ export const metadata = {
 export default function BlogPost() {
   return (
     <article className="max-w-4xl mx-auto px-4 py-12">
+      <ArticleSchema
+        title="How to Price Your Nail Services: Calculate What You Should Actually Charge"
+        description="Most nail techs underprice their work. Here's how to calculate your real costs, set competitive rates, and raise prices without losing clients."
+        author="GlossyStack"
+        datePublished="2026-02-24"
+        url="https://glossystack.com/blog/how-to-price-nail-services-calculate-rates"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Blog", url: "https://glossystack.com/blog" },
+          { name: "How to Price Your Nail Services", url: "https://glossystack.com/blog/how-to-price-nail-services-calculate-rates" },
+        ]}
+      />
       <h1 className="text-4xl font-bold mb-4">How to Price Your Nail Services: Calculate What You Should Actually Charge</h1>
       <p className="text-gray-600 mb-8">February 24, 2026</p>
       

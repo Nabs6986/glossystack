@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Check, Star, Users, Zap, Shield } from "lucide-react";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 interface SoftwareItem {
   name: string;
@@ -130,6 +131,11 @@ function SoftwareCard({ software }: { software: SoftwareItem }) {
 export default function HomePage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+        ]}
+      />
       <Navbar />
       <main>
         {/* Hero Section */}

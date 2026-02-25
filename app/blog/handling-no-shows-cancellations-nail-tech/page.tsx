@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { ArticleSchema } from "@/components/schema/ArticleSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: 'How to Handle No-Shows and Last-Minute Cancellations as a Nail Tech | Glossy Stack',
@@ -8,6 +10,20 @@ export const metadata: Metadata = {
 export default function BlogPost() {
   return (
     <article className="prose prose-lg max-w-4xl mx-auto px-4 py-12">
+      <ArticleSchema
+        title="How to Handle No-Shows and Last-Minute Cancellations as a Nail Tech"
+        description="Stop losing money to no-shows. Learn how to set up deposits, enforce cancellation policies, and use booking software to protect your nail tech income."
+        author="GlossyStack"
+        datePublished="2026-02-23"
+        url="https://glossystack.com/blog/handling-no-shows-cancellations-nail-tech"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Blog", url: "https://glossystack.com/blog" },
+          { name: "Handling No-Shows and Cancellations", url: "https://glossystack.com/blog/handling-no-shows-cancellations-nail-tech" },
+        ]}
+      />
       <h1>How to Handle No-Shows and Last-Minute Cancellations as a Nail Tech</h1>
       <p className="text-gray-600 mb-8">February 23, 2026</p>
 

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
+import { FAQSchema } from "@/components/schema/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | GlossyStack",
@@ -144,50 +146,20 @@ const faqSections = [
 // Build flat list for JSON-LD
 const allQAs = faqSections.flatMap((s) => s.questions);
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: allQAs.map((qa) => ({
-    "@type": "Question",
-    name: qa.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: qa.a,
-    },
-  })),
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://glossystack.com",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "FAQ",
-      item: "https://glossystack.com/faq",
-    },
-  ],
-};
 
 export default function FAQPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "FAQ", url: "https://glossystack.com/faq" },
+        ]}
+      />
+      <FAQSchema
+        faqs={allQAs.map((qa) => ({ question: qa.q, answer: qa.a }))}
+      />
       <Navbar />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
 
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-6">

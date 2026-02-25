@@ -1,3 +1,6 @@
+import { ArticleSchema } from "@/components/schema/ArticleSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
+
 export const metadata = {
   title: "Best Booking Software for Mobile Nail Techs and Home Salons (2026) | Glossy Stack",
   description: "The best booking apps for nail techs who work from home or travel to clients. We compare GlossGenius, Fresha, Square, and Vagaro for mobile-first nail businesses."
@@ -6,6 +9,20 @@ export const metadata = {
 export default function BlogPost() {
   return (
     <article className="max-w-4xl mx-auto px-4 py-12">
+      <ArticleSchema
+        title="Best Booking Software for Mobile Nail Techs and Home Salons (2026)"
+        description="The best booking apps for nail techs who work from home or travel to clients. We compare GlossGenius, Fresha, Square, and Vagaro for mobile-first nail businesses."
+        author="GlossyStack"
+        datePublished="2026-02-22"
+        url="https://glossystack.com/blog/best-booking-software-mobile-nail-techs"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Blog", url: "https://glossystack.com/blog" },
+          { name: "Best Booking Software for Mobile Nail Techs", url: "https://glossystack.com/blog/best-booking-software-mobile-nail-techs" },
+        ]}
+      />
       <h1 className="text-4xl font-bold mb-4">Best Booking Software for Mobile Nail Techs and Home Salons (2026)</h1>
       <p className="text-gray-600 mb-8">February 22, 2026</p>
       

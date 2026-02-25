@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { posts } from "./_data/posts";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "Salon Software Blog | Glossy Stack",
@@ -16,6 +17,12 @@ export default function BlogIndexPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Blog", url: "https://glossystack.com/blog" },
+        ]}
+      />
       <main className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-10">
           <h1 className="text-4xl font-bold mb-4">Glossy Stack Blog</h1>

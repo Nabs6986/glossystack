@@ -1,3 +1,6 @@
+import { ArticleSchema } from "@/components/schema/ArticleSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
+
 export const metadata = {
   title: "How to Start a Solo Nail Tech Business: Software and Tools You Actually Need | Glossy Stack",
   description: "Starting a nail tech business? Here's the software stack and tools you actually need—without spending money on things you don't."
@@ -6,6 +9,20 @@ export const metadata = {
 export default function BlogPost() {
   return (
     <article className="max-w-4xl mx-auto px-4 py-12">
+      <ArticleSchema
+        title="How to Start a Solo Nail Tech Business: Software and Tools You Actually Need"
+        description="Starting a nail tech business? Here's the software stack and tools you actually need—without spending money on things you don't."
+        author="GlossyStack"
+        datePublished="2026-02-21"
+        url="https://glossystack.com/blog/start-solo-nail-tech-business"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Blog", url: "https://glossystack.com/blog" },
+          { name: "How to Start a Solo Nail Tech Business", url: "https://glossystack.com/blog/start-solo-nail-tech-business" },
+        ]}
+      />
       <h1 className="text-4xl font-bold mb-4">How to Start a Solo Nail Tech Business: Software and Tools You Actually Need</h1>
       <p className="text-gray-600 mb-8">February 21, 2026</p>
       

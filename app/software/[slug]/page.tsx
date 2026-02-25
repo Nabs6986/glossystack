@@ -6,6 +6,9 @@ import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
 import { getSoftware, getAllSoftwareSlugs, SoftwareReview } from "../_data/software";
 import { getComparison, getAllComparisonSlugs } from "@/app/vs/_data/comparisons";
+import { SoftwareApplicationSchema } from "@/components/schema/SoftwareApplicationSchema";
+import { ReviewSchema } from "@/components/schema/ReviewSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -79,42 +82,6 @@ export default async function SoftwarePage({ params }: Props) {
     notFound();
   }
 
-  // JSON-LD schemas
-  const productJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": software.name,
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web, iOS, Android",
-    "description": software.quickVerdict,
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": software.pricingTiers[0]?.price.replace(/[^0-9]/g, "") || "49",
-      "offerCount": software.pricingTiers.length,
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": software.rating,
-      "reviewCount": software.ratingCount,
-      "bestRating": "5",
-      "worstRating": "1",
-    },
-    "review": {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": software.rating,
-        "bestRating": "5",
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "GlossyStack",
-        "url": "https://glossystack.com",
-      },
-    },
-  };
-
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -134,15 +101,34 @@ export default async function SoftwarePage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Software Reviews", url: "https://glossystack.com" },
+          { name: software.name, url: `https://glossystack.com/software/${slug}` },
+        ]}
+      />
+      <SoftwareApplicationSchema
+        name={software.name}
+        description={software.quickVerdict}
+        rating={software.rating}
+        ratingCount={software.ratingCount}
+        price={software.pricingTiers[0]?.price || "$0"}
+        url={`https://glossystack.com/software/${slug}`}
+      />
+      <ReviewSchema
+        name={`${software.name} Review`}
+        reviewBody={software.quickVerdict}
+        ratingValue={software.rating}
+        softwareName={software.name}
+        softwareUrl={`https://glossystack.com/software/${slug}`}
+        price={software.pricingTiers[0]?.price || "$0"}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <Navbar />
 
       <main className="pt-16">
         {/* Hero */}

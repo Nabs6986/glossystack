@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
 import { Shield, BarChart3, Users, BookOpen } from "lucide-react";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "About GlossyStack — Who We Are and How We Review Salon Software",
@@ -49,6 +50,12 @@ const standards = [
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "About", url: "https://glossystack.com/about" },
+        ]}
+      />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="mx-auto max-w-3xl px-6">

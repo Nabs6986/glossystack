@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
 import { Star, ArrowRight, Check, X } from "lucide-react";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "Salon Software Pricing Comparison 2026 — GlossyStack",
@@ -181,6 +182,12 @@ const faqSchema = {
 export default function PricingPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Pricing", url: "https://glossystack.com/pricing" },
+        ]}
+      />
       <Navbar />
       <main className="pt-24 pb-16">
         <script

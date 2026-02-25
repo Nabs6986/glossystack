@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "How We Review Salon Software | GlossyStack",
@@ -22,25 +23,6 @@ const webPageSchema = {
     name: "GlossyStack",
     url: "https://glossystack.com",
   },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://glossystack.com",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "How We Review",
-      item: "https://glossystack.com/how-we-review",
-    },
-  ],
 };
 
 const steps = [
@@ -118,15 +100,17 @@ const criteria = [
 export default function HowWeReviewPage() {
   return (
     <>
-      <Navbar />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "How We Review", url: "https://glossystack.com/how-we-review" },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+      <Navbar />
 
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-6">

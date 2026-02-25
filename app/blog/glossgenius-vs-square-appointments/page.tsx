@@ -1,3 +1,6 @@
+import { ArticleSchema } from "@/components/schema/ArticleSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
+
 export const metadata = {
   title: "GlossGenius vs Square Appointments: Which Is Better for Nail Techs? (2026) | Glossy Stack",
   description: "GlossGenius vs Square Appointments compared for nail techs. We break down pricing, features, booking pages, and payment processing to help you choose."
@@ -6,6 +9,20 @@ export const metadata = {
 export default function BlogPost() {
   return (
     <article className="max-w-4xl mx-auto px-4 py-12">
+      <ArticleSchema
+        title="GlossGenius vs Square Appointments: Which Is Better for Nail Techs?"
+        description="GlossGenius vs Square Appointments compared for nail techs. We break down pricing, features, booking pages, and payment processing to help you choose."
+        author="GlossyStack"
+        datePublished="2026-02-22"
+        url="https://glossystack.com/blog/glossgenius-vs-square-appointments"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Blog", url: "https://glossystack.com/blog" },
+          { name: "GlossGenius vs Square Appointments", url: "https://glossystack.com/blog/glossgenius-vs-square-appointments" },
+        ]}
+      />
       <h1 className="text-4xl font-bold mb-4">GlossGenius vs Square Appointments: Which Is Better for Nail Techs?</h1>
       <p className="text-gray-600 mb-8">February 22, 2026</p>
       

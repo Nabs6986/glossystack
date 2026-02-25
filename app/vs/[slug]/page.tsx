@@ -5,6 +5,8 @@ import { Check, X, ArrowRight, Star, HelpCircle } from "lucide-react";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
 import { getComparison, getAllComparisonSlugs, SoftwareComparison } from "../_data/comparisons";
+import { ComparisonSchema } from "@/components/schema/ComparisonSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -66,11 +68,25 @@ export default async function ComparisonPage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Comparisons", url: "https://glossystack.com" },
+          { name: `${platformA.name} vs ${platformB.name}`, url: `https://glossystack.com/vs/${slug}` },
+        ]}
+      />
+      <ComparisonSchema
+        products={[
+          { name: platformA.name, description: platformA.bestFor },
+          { name: platformB.name, description: platformB.bestFor },
+        ]}
+        url={`https://glossystack.com/vs/${slug}`}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <Navbar />
 
       <main className="pt-16">
         {/* Hero */}

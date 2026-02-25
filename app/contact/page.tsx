@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
 import { Mail, Clock, ArrowRight } from "lucide-react";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "Contact Us — GlossyStack",
@@ -43,6 +44,12 @@ const contacts = [
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Contact", url: "https://glossystack.com/contact" },
+        ]}
+      />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="mx-auto max-w-3xl px-6">

@@ -5,6 +5,8 @@ import { Check, ArrowRight, HelpCircle, AlertTriangle, Star, Layers } from "luci
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
 import { getUseCase, getAllUseCaseSlugs, UseCase } from "../_data/usecases";
+import { ArticleSchema } from "@/components/schema/ArticleSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -67,11 +69,25 @@ export default async function UseCasePage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Use Cases", url: "https://glossystack.com" },
+          { name: usecase.headline, url: `https://glossystack.com/use-case/${slug}` },
+        ]}
+      />
+      <ArticleSchema
+        title={usecase.headline}
+        description={usecase.metaDescription}
+        author="GlossyStack"
+        datePublished="2026-02-01"
+        url={`https://glossystack.com/use-case/${slug}`}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <Navbar />
 
       <main className="pt-16">
         {/* Hero */}

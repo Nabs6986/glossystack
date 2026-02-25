@@ -1,3 +1,6 @@
+import { ArticleSchema } from "@/components/schema/ArticleSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
+
 export const metadata = {
   title: "Client Notes Are Your Secret Weapon: How Nail Techs Build Loyalty That Lasts | Glossy Stack",
   description: "The nail techs with fully booked calendars don't just do great nails—they remember details. Here's how to use client notes to build real loyalty."
@@ -6,6 +9,20 @@ export const metadata = {
 export default function BlogPost() {
   return (
     <article className="max-w-4xl mx-auto px-4 py-12">
+      <ArticleSchema
+        title="Client Notes Are Your Secret Weapon: How Nail Techs Build Loyalty That Lasts"
+        description="The nail techs with fully booked calendars don't just do great nails—they remember details. Here's how to use client notes to build real loyalty."
+        author="GlossyStack"
+        datePublished="2026-02-24"
+        url="https://glossystack.com/blog/client-notes-nail-tech-retention"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Blog", url: "https://glossystack.com/blog" },
+          { name: "Client Notes for Nail Tech Retention", url: "https://glossystack.com/blog/client-notes-nail-tech-retention" },
+        ]}
+      />
       <h1 className="text-4xl font-bold mb-4">Client Notes Are Your Secret Weapon: How Nail Techs Build Loyalty That Lasts</h1>
       <p className="text-gray-600 mb-8">February 24, 2026</p>
       

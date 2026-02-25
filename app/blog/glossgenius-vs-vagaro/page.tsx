@@ -1,3 +1,6 @@
+import { ArticleSchema } from "@/components/schema/ArticleSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
+
 export const metadata = {
   title: "GlossGenius vs Vagaro: Which Salon Software Is Right for You | Glossy Stack",
   description: "GlossGenius vs Vagaro compared head-to-head. Pricing, features, payment fees, and which is better for solo nail techs vs multi-staff salons."
@@ -6,6 +9,20 @@ export const metadata = {
 export default function BlogPost() {
   return (
     <article className="max-w-4xl mx-auto px-4 py-12">
+      <ArticleSchema
+        title="GlossGenius vs Vagaro: Which Salon Software Is Right for You"
+        description="GlossGenius vs Vagaro compared head-to-head. Pricing, features, payment fees, and which is better for solo nail techs vs multi-staff salons."
+        author="GlossyStack"
+        datePublished="2026-02-21"
+        url="https://glossystack.com/blog/glossgenius-vs-vagaro"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "Blog", url: "https://glossystack.com/blog" },
+          { name: "GlossGenius vs Vagaro", url: "https://glossystack.com/blog/glossgenius-vs-vagaro" },
+        ]}
+      />
       <h1 className="text-4xl font-bold mb-4">GlossGenius vs Vagaro: Which Salon Software Is Right for You</h1>
       <p className="text-gray-600 mb-8">February 21, 2026</p>
       

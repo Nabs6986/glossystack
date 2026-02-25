@@ -5,6 +5,8 @@ import { Check, ArrowRight, Star, HelpCircle, Trophy, ExternalLink } from "lucid
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
 import { getAudience, getAllAudienceSlugs } from "../_data/audiences";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
+import { ItemListSchema } from "@/components/schema/ItemListSchema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -69,11 +71,27 @@ export default async function AudiencePage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://glossystack.com" },
+          { name: "By Practice", url: "https://glossystack.com" },
+          { name: audience.title, url: `https://glossystack.com/for/${slug}` },
+        ]}
+      />
+      <ItemListSchema
+        name={`Best Software for ${audience.title}`}
+        url={`https://glossystack.com/for/${slug}`}
+        items={audience.topRecommendations.map((rec) => ({
+          name: rec.name,
+          url: rec.affiliateUrl,
+          description: rec.tagline,
+        }))}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <Navbar />
 
       <main className="pt-16">
         {/* Hero */}
