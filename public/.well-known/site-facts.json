@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "siteName": "GlossyStack",
+  "domain": "glossystack.com",
+  "description": "GlossyStack is an independent review site that helps salon owners and beauty professionals choose the best booking and management software. We provide unbiased comparisons, real pricing data, and honest recommendations — no pay-for-placement.",
+  "primaryTopic": "Salon booking and management software reviews",
+  "topPicks": [
+    "Vagaro ($30/mo)",
+    "GlossGenius ($24/mo)",
+    "Mangomint ($165/mo)"
+  ],
+  "targetAudience": [
+    "Salon owners",
+    "Nail technicians",
+    "Beauty professionals",
+    "Spa managers"
+  ],
+  "contentTypes": [
+    "Software reviews",
+    "Head-to-head comparisons",
+    "Best-of guides",
+    "Pricing breakdowns",
+    "Audience-specific recommendations"
+  ],
+  "editorialPolicy": "All reviews are independent and based on hands-on testing. Software companies do not pay for placement or influence editorial scores. We may earn affiliate commissions through links.",
+  "lastUpdated": "2026-02-25",
+  "contactEmail": "hello@glossystack.com",
+  "siteLinks": {
+    "homepage": "https://glossystack.com",
+    "about": "https://glossystack.com/about-this-site",
+    "guides": "https://glossystack.com/guides",
+    "pricing": "https://glossystack.com/pricing",
+    "howWeReview": "https://glossystack.com/how-we-review"
+  }
+}
