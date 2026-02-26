@@ -3,6 +3,7 @@ import { getAllComparisonSlugs } from './vs/_data/comparisons';
 import { getAllAudienceSlugs } from './for/_data/audiences';
 import { getAllUseCaseSlugs } from './use-case/_data/usecases';
 import { getAllSoftwareSlugs } from './software/_data/software';
+import { getAllAlternativesSlugs } from './alternatives/_data/alternatives';
 import { posts } from './blog/_data/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -54,5 +55,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...corePages, ...comparisonPages, ...audiencePages, ...useCasePages, ...softwarePages, ...blogPages];
+  const alternativesPages: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/alternatives`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.85 },
+    ...getAllAlternativesSlugs().map((slug) => ({
+      url: `${baseUrl}/alternatives/${slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    })),
+  ];
+
+  return [...corePages, ...comparisonPages, ...audiencePages, ...useCasePages, ...softwarePages, ...alternativesPages, ...blogPages];
 }
